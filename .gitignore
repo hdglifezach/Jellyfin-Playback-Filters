@@ -1,0 +1,9 @@
+bin/
+obj/
+dist/
+release/
+public-release/
+.vs/
+.idea/
+*.user
+*.suo

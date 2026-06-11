@@ -1,0 +1,15 @@
+---
+name: "Playback Filters"
+guid: "584fa16c-e558-4ae5-a02b-bbfbfe16dd03"
+version: "1.0.0.0"
+targetAbi: "10.11.0.0"
+framework: "net9.0"
+overview: "Client-side video filter presets for Jellyfin Web"
+description: >
+  Adds persistent GPU-rendered video filter presets, including black and white
+  and noir, to Jellyfin Web playback.
+category: "General"
+owner: "local"
+artifacts:
+- "Jellyfin.Plugin.PlaybackFilters.dll"
+changelog: "Initial release"
