@@ -5,7 +5,7 @@
   "guid": "584fa16c-e558-4ae5-a02b-bbfbfe16dd03",
   "name": "Playback Filters",
   "overview": "Client-side video filter presets for Jellyfin Web",
-  "owner": "TheRealZachTV",
+  "owner": "hdglifezach",
   "targetAbi": "10.11.0.0",
   "timestamp": "2026-06-11T19:32:00.0000000Z",
   "version": "1.0.0.0",

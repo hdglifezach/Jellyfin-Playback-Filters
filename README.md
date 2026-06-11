@@ -34,7 +34,7 @@ Jellyfin Web JavaScript, so filters cannot be displayed in those clients.
 3. Add this repository URL:
 
    ```text
-   https://raw.githubusercontent.com/TheRealZachTV/Jellyfin-Playback-Filters/main/manifest.json
+   https://raw.githubusercontent.com/hdglifezach/Jellyfin-Playback-Filters/main/manifest.json
    ```
 
 4. Save, open the catalog, and install **Playback Filters**.
@@ -43,7 +43,7 @@ Jellyfin Web JavaScript, so filters cannot be displayed in those clients.
 ## Manual Install
 
 Download the latest ZIP from
-[Releases](https://github.com/TheRealZachTV/Jellyfin-Playback-Filters/releases),
+[Releases](https://github.com/hdglifezach/Jellyfin-Playback-Filters/releases),
 extract it into Jellyfin's plugins directory, and restart Jellyfin.
 
 ## Build
