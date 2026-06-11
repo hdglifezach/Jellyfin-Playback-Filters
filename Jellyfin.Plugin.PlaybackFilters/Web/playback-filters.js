@@ -153,18 +153,18 @@
         return button;
     }
 
-    function addControls(container, sleepButton) {
+    function addControls(container, anchor) {
         const existingButton = document.querySelector('.playbackFilterButton');
         if (existingButton) {
-            if (sleepButton && sleepButton.nextElementSibling !== existingButton) {
-                sleepButton.insertAdjacentElement('afterend', existingButton);
+            if (anchor && anchor.nextElementSibling !== existingButton) {
+                anchor.insertAdjacentElement('afterend', existingButton);
             }
             return;
         }
 
         const button = createFilterButton();
-        if (sleepButton) {
-            sleepButton.insertAdjacentElement('afterend', button);
+        if (anchor) {
+            anchor.insertAdjacentElement('afterend', button);
         } else {
             container.appendChild(button);
         }
@@ -173,14 +173,16 @@
 
     function scan() {
         scanScheduled = false;
-        const sleepButton = document.querySelector('.videoOsdBottom .btnJellysleep, .btnJellysleep');
-        const container = sleepButton?.parentElement
+        const volumeControl = document.querySelector('.videoOsdBottom .volumeButtons');
+        const settingsButton = document.querySelector('.videoOsdBottom .btnVideoOsdSettings');
+        const anchor = volumeControl || settingsButton?.previousElementSibling;
+        const container = anchor?.parentElement
             || document.querySelector('.videoOsdBottom .buttons.focuscontainer-x')
             || document.querySelector('.videoOsdBottom .buttons')
             || document.querySelector('.videoOsdBottom .focuscontainer-x')
             || document.querySelector('.videoOsdBottom');
         if (container) {
-            addControls(container, sleepButton);
+            addControls(container, anchor);
         }
         applyFilter();
     }

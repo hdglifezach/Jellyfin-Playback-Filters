@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Playback Filters adds real-time movie, black-and-white, color, comfort, and fun filters to Jellyfin Web.">
+  <title>Jellyfin Playback Filters</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <a class="brand" href="#">Playback Filters</a>
+      <div class="nav-links">
+        <a href="#install">Install</a>
+        <a href="https://github.com/hdglifezach/Jellyfin-Playback-Filters">GitHub</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div>
+        <p class="eyebrow">A plugin for Jellyfin Web</p>
+        <h1>Change the look of anything you watch.</h1>
+        <p class="lead">
+          Apply more than 30 real-time video filters without creating another
+          media file or forcing Jellyfin to transcode.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#install">Install from Catalog</a>
+          <a class="button" href="https://github.com/hdglifezach/Jellyfin-Playback-Filters/releases/latest">Download ZIP</a>
+        </div>
+      </div>
+
+      <div class="player-demo" aria-label="Stylized preview of the playback filter menu">
+        <div class="screen">
+          <div class="screen-glow"></div>
+          <div class="screen-title">NOIR</div>
+          <div class="controls">
+            <span>▶</span><span>▮▮</span><span class="timeline"></span><span>◐</span><span>☾</span>
+          </div>
+        </div>
+        <div class="filter-menu">
+          <strong>Black &amp; White</strong>
+          <span>Classic B&amp;W</span>
+          <span class="selected">Noir</span>
+          <span>Hard Noir</span>
+          <strong>Fun</strong>
+          <span>Rainbow Shift</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">How it works</p>
+      <h2>A filter button lives directly in the playback bar.</h2>
+      <p>
+        Open the filter menu beside the volume control, select a look, and it applies
+        immediately. Your selection is remembered in that browser. Filters run
+        on the client GPU, preserving direct play and direct stream.
+      </p>
+    </section>
+
+    <section class="cards">
+      <article>
+        <span class="card-icon">🎬</span>
+        <h3>Movie</h3>
+        <p>Cinema, Blockbuster, Horror, Dreamy, Warm Film, and Vintage Film.</p>
+      </article>
+      <article>
+        <span class="card-icon">◐</span>
+        <h3>Black &amp; White</h3>
+        <p>Classic B&amp;W, Noir, Hard Noir, Silver Screen, Newspaper, and Faded B&amp;W.</p>
+      </article>
+      <article>
+        <span class="card-icon">🌈</span>
+        <h3>Color &amp; Fun</h3>
+        <p>Vivid, Sunset, Alien Vision, X-Ray, Radioactive, and animated Rainbow Shift.</p>
+      </article>
+      <article>
+        <span class="card-icon">☾</span>
+        <h3>Comfort</h3>
+        <p>Dim, Night, Soft Contrast, High Contrast, and Low Color viewing modes.</p>
+      </article>
+    </section>
+
+    <section id="install" class="install">
+      <div>
+        <p class="eyebrow">Installation</p>
+        <h2>Install through Jellyfin's plugin catalog.</h2>
+        <p>
+          Playback Filters currently supports Jellyfin Server 10.11.x and
+          requires the JavaScript Injector plugin.
+        </p>
+      </div>
+      <ol>
+        <li>
+          <strong>Install JavaScript Injector</strong>
+          <span>Add its 10.11 repository and install it first.</span>
+          <code>https://raw.githubusercontent.com/n00bcodr/jellyfin-plugins/main/10.11/manifest.json</code>
+        </li>
+        <li>
+          <strong>Add the Playback Filters repository</strong>
+          <span>Open Dashboard → Plugins → Catalog → Settings and add:</span>
+          <code>https://raw.githubusercontent.com/hdglifezach/Jellyfin-Playback-Filters/main/manifest.json</code>
+        </li>
+        <li>
+          <strong>Install and restart</strong>
+          <span>Install Playback Filters from the catalog, restart Jellyfin, and fully reopen Jellyfin Web.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="notice">
+      <h2>Compatibility</h2>
+      <p>
+        Filters work in Jellyfin Web and web-based clients that load the
+        server-provided interface. Native Roku, Kodi, and some television apps
+        do not execute Jellyfin Web JavaScript and cannot display these filters.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Jellyfin Playback Filters</span>
+    <a href="https://github.com/hdglifezach/Jellyfin-Playback-Filters">Source and issues on GitHub</a>
+  </footer>
+</body>
+</html>

@@ -1,9 +1,11 @@
 # Jellyfin Playback Filters
 
+[View the landing page](https://hdglifezach.github.io/Jellyfin-Playback-Filters/)
+
 Client-side video filters for Jellyfin Web, rendered by the browser GPU without
 forcing a server transcode.
 
-The plugin adds a filter button beside the Sleep Timer button in Jellyfin's
+The plugin adds a filter button beside the volume control in Jellyfin's
 playback bar. It includes grouped movie, black-and-white, color, comfort, and
 fun presets, including an animated Rainbow Shift mode.
 
