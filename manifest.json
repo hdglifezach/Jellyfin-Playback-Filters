@@ -8,6 +8,14 @@
     "category": "General",
     "versions": [
       {
+        "changelog": "Added Custom Filter Studio for creating, previewing, saving, applying, and deleting personal presets. Added Retro TV, VHS, Silent Film, Old Western, Security Camera, and Broken TV styles.",
+        "targetAbi": "10.11.0.0",
+        "version": "1.2.0.0",
+        "sourceUrl": "https://github.com/hdglifezach/Jellyfin-Playback-Filters/releases/download/v1.2.0/Jellyfin.Plugin.PlaybackFilters_10.11.zip",
+        "checksum": "47E5789AD9B2236A4F458DE5B9B4B23A",
+        "timestamp": "2026-06-11T23:30:00"
+      },
+      {
         "changelog": "Moved the filter button beside Jellyfin's standard volume control for users without Sleep Timer. Added a public landing page and improved general client compatibility.",
         "targetAbi": "10.11.0.0",
         "version": "1.1.0.0",

@@ -1,14 +1,14 @@
 {
   "category": "General",
-  "changelog": "Place the filter button beside Jellyfin's standard volume control and add a landing page.",
+  "changelog": "Add Custom Filter Studio and Retro TV filter styles.",
   "description": "Adds grouped GPU-rendered video filter presets to Jellyfin Web playback.",
   "guid": "584fa16c-e558-4ae5-a02b-bbfbfe16dd03",
   "name": "Playback Filters",
   "overview": "Client-side video filter presets for Jellyfin Web",
   "owner": "hdglifezach",
   "targetAbi": "10.11.0.0",
-  "timestamp": "2026-06-11T20:15:00.0000000Z",
-  "version": "1.1.0.0",
+  "timestamp": "2026-06-11T23:30:00.0000000Z",
+  "version": "1.2.0.0",
   "status": "Active",
   "autoUpdate": true,
   "assemblies": []

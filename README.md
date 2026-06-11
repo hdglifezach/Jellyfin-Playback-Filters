@@ -24,6 +24,8 @@ well for me that I wanted to share it with every other Jellyfin user.
 - Comfort presets such as Dim, Night, and Soft Contrast
 - Fun presets such as Alien Vision, X-Ray, Radioactive, and Rainbow Shift
 - Persistent filter selection per browser
+- Custom Filter Studio with live sliders and saved personal presets
+- Retro TV, VHS, Silent Film, Old Western, and Security Camera styles
 - `Alt+F` shortcut to cycle filters
 - Preserves direct play and direct stream
 
