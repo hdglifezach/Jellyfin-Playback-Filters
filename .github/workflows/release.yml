@@ -21,8 +21,8 @@ jobs:
       - name: Package
         shell: pwsh
         run: |
-          Copy-Item .\meta.json .\publish\meta.json
-          Compress-Archive -Path .\publish\Jellyfin.Plugin.PlaybackFilters.dll,.\publish\meta.json -DestinationPath .\Jellyfin.Plugin.PlaybackFilters_10.11.zip
+          Copy-Item .\meta.json .\publish\meta.json -Force
+          Compress-Archive -Path .\publish\Jellyfin.Plugin.PlaybackFilters.dll,.\publish\meta.json -DestinationPath .\Jellyfin.Plugin.PlaybackFilters_10.11.zip -Force
       - uses: softprops/action-gh-release@v2
         with:
           files: Jellyfin.Plugin.PlaybackFilters_10.11.zip

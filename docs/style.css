@@ -141,7 +141,13 @@ h3 { margin: 12px 0 8px; font-size: 1.35rem; }
 .filter-menu .selected { background: var(--accent); color: #001018; font-weight: 800; }
 
 main { padding-block: 110px; }
-.intro { max-width: 720px; margin-bottom: 70px; }
+.intro, .story { max-width: 720px; margin-bottom: 70px; }
+.story {
+  margin-left: auto;
+  border-left: 3px solid var(--accent-2);
+  padding: 18px 0 18px 30px;
+}
+.story p:last-child { color: var(--muted); font-size: 1.08rem; }
 .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .cards article, .notice {
   border: 1px solid rgba(255, 255, 255, .1);

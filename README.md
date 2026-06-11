@@ -9,6 +9,13 @@ The plugin adds a filter button beside the volume control in Jellyfin's
 playback bar. It includes grouped movie, black-and-white, color, comfort, and
 fun presets, including an animated Rainbow Shift mode.
 
+## Why I Made It
+
+I wanted to watch Spider-Noir in black and white through my own Jellyfin setup
+instead of being limited to where an alternate presentation was available.
+That simple idea grew into a full collection of real-time filters. It worked so
+well for me that I wanted to share it with every other Jellyfin user.
+
 ## Features
 
 - More than 30 grouped filter presets
