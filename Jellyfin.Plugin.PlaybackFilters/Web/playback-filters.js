@@ -70,26 +70,103 @@
     let selectedId = localStorage.getItem(storageKey) || 'none';
     let panel;
     let studio;
+    let compatibilityNotice;
     let scanScheduled = false;
+    const isWebOs = /\b(?:web0s|webos)\b/i.test(navigator.userAgent);
 
     function selectedPreset() {
         return presets.find((preset) => preset.id === selectedId) || presets[0];
     }
 
+    function populatePresetSelect(select) {
+        const previousValue = select.value;
+        select.innerHTML = '';
+
+        let group;
+        presets.forEach((preset) => {
+            if (!group || group.label !== preset.group) {
+                group = document.createElement('optgroup');
+                group.label = preset.group;
+                select.appendChild(group);
+            }
+
+            const option = document.createElement('option');
+            option.value = preset.id;
+            option.textContent = preset.name;
+            group.appendChild(option);
+        });
+
+        select.value = presets.some((preset) => preset.id === previousValue)
+            ? previousValue
+            : selectedId;
+    }
+
+    function addPreplaySelectors() {
+        document.querySelectorAll('.trackSelections').forEach((container) => {
+            let select = container.querySelector('.playbackFilterPreplaySelect');
+            if (select) {
+                if (select.options.length !== presets.length || select.value !== selectedId) {
+                    populatePresetSelect(select);
+                    select.value = selectedId;
+                }
+                return;
+            }
+
+            const selectContainer = document.createElement('div');
+            selectContainer.className = 'selectContainer playbackFilterPreplay';
+
+            const label = document.createElement('label');
+            label.className = 'selectLabel';
+            label.textContent = isWebOs ? 'Filter (webOS video unsupported)' : 'Filter';
+
+            select = document.createElement('select');
+            select.className = 'detailTrackSelect emby-select emby-select-withcolor emby-select-focusscale playbackFilterPreplaySelect';
+            select.setAttribute('aria-label', 'Playback filter');
+            populatePresetSelect(select);
+            select.value = selectedId;
+            select.addEventListener('change', () => chooseFilter(select.value));
+
+            const arrow = document.createElement('div');
+            arrow.className = 'selectArrowContainer';
+            arrow.innerHTML = '<span class="selectArrow material-icons keyboard_arrow_down" aria-hidden="true"></span>';
+
+            selectContainer.append(label, select, arrow);
+            container.appendChild(selectContainer);
+        });
+    }
+
+    function showCompatibilityNotice() {
+        if (!isWebOs) {
+            return;
+        }
+
+        if (!compatibilityNotice?.isConnected) {
+            compatibilityNotice = document.createElement('div');
+            compatibilityNotice.className = 'playbackFilterCompatibilityNotice';
+            compatibilityNotice.textContent = 'LG webOS displays video on a hardware layer that cannot use browser filters. Server-side filter mode is required for the playing video.';
+            document.body.appendChild(compatibilityNotice);
+        }
+
+        compatibilityNotice.hidden = false;
+        clearTimeout(compatibilityNotice.hideTimer);
+        compatibilityNotice.hideTimer = setTimeout(() => {
+            compatibilityNotice.hidden = true;
+        }, 9000);
+    }
+
+    function setFilter(css, animation = '') {
+        document.querySelectorAll('video').forEach((target) => {
+            target.style.filter = css;
+            target.style.webkitFilter = css;
+            target.style.animation = animation;
+            target.style.webkitAnimation = animation;
+            target.dataset.playbackFilterActive = css === 'none' ? 'false' : 'true';
+        });
+    }
+
     function applyFilter() {
         const preset = selectedPreset();
-        document.querySelectorAll('.videoPlayerContainer video, video.htmlvideoplayer').forEach((video) => {
-            if (video.style.filter !== preset.css) {
-                video.style.filter = preset.css;
-            }
-            if (video.style.webkitFilter !== preset.css) {
-                video.style.webkitFilter = preset.css;
-            }
-            const animation = preset.animation || '';
-            if (video.style.animation !== animation) {
-                video.style.animation = animation;
-            }
-        });
+        setFilter(preset.css, preset.animation || '');
 
         document.querySelectorAll('.playbackFilterButton').forEach((button) => {
             const title = `Playback filter: ${preset.name}`;
@@ -108,12 +185,21 @@
                 button.classList.toggle('selected', button.dataset.filterId === preset.id);
             });
         }
+
+        document.querySelectorAll('.playbackFilterPreplaySelect').forEach((select) => {
+            if (select.value !== selectedId) {
+                select.value = selectedId;
+            }
+        });
     }
 
     function chooseFilter(id) {
         selectedId = presets.some((preset) => preset.id === id) ? id : 'none';
         localStorage.setItem(storageKey, selectedId);
         applyFilter();
+        if (selectedId !== 'none') {
+            showCompatibilityNotice();
+        }
     }
 
     function createPanel() {
@@ -192,11 +278,7 @@
 
         function preview() {
             const css = filterCss(values);
-            document.querySelectorAll('.videoPlayerContainer video, video.htmlvideoplayer').forEach((video) => {
-                video.style.animation = '';
-                video.style.filter = css;
-                video.style.webkitFilter = css;
-            });
+            setFilter(css);
         }
 
         function reset() {
@@ -313,6 +395,7 @@
         if (container) {
             addControls(container, anchor);
         }
+        addPreplaySelectors();
         applyFilter();
     }
 
@@ -345,6 +428,24 @@
             color: #fff;
             cursor: pointer;
         }
+        .playbackFilterPreplay .playbackFilterPreplaySelect {
+            min-width: 12em;
+        }
+        .playbackFilterCompatibilityNotice {
+            position: fixed;
+            z-index: 10010;
+            left: 50%;
+            bottom: 8vh;
+            transform: translateX(-50%);
+            width: min(620px, calc(100vw - 32px));
+            border-radius: 10px;
+            padding: 13px 16px;
+            background: rgba(20,20,20,.96);
+            color: #fff;
+            box-shadow: 0 8px 28px rgba(0,0,0,.55);
+            text-align: center;
+        }
+        .playbackFilterCompatibilityNotice[hidden] { display: none; }
         .playbackFilterPanel {
             position: fixed;
             z-index: 10003;

@@ -24,6 +24,7 @@ well for me that I wanted to share it with every other Jellyfin user.
 - Comfort presets such as Dim, Night, and Soft Contrast
 - Fun presets such as Alien Vision, X-Ray, Radioactive, and Rainbow Shift
 - Persistent filter selection per browser
+- Filter selector on item detail pages before playback
 - Custom Filter Studio with live sliders and saved personal presets
 - Retro TV, VHS, Silent Film, Old Western, and Security Camera styles
 - `Alt+F` shortcut to cycle filters
@@ -35,8 +36,11 @@ well for me that I wanted to share it with every other Jellyfin user.
 - [JavaScript Injector](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector)
 - Jellyfin Web or another client that loads the server-provided Jellyfin Web UI
 
-Native clients such as Roku, Kodi, and some television apps do not execute
-Jellyfin Web JavaScript, so filters cannot be displayed in those clients.
+Native clients such as Fire TV, Roku, and Kodi do not execute Jellyfin Web
+JavaScript, so filters cannot be displayed in those clients. LG webOS loads the
+web interface, but its playing video uses a separate hardware layer that cannot
+be changed by browser CSS filters. Those clients require a future server-side
+transcoding mode.
 
 ## Install From Jellyfin Catalog
 

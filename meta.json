@@ -1,14 +1,14 @@
 {
   "category": "General",
-  "changelog": "Add Custom Filter Studio and Retro TV filter styles.",
+  "changelog": "Add a pre-play filter selector and clarify LG webOS hardware-video compatibility.",
   "description": "Adds grouped GPU-rendered video filter presets to Jellyfin Web playback.",
   "guid": "584fa16c-e558-4ae5-a02b-bbfbfe16dd03",
   "name": "Playback Filters",
   "overview": "Client-side video filter presets for Jellyfin Web",
   "owner": "hdglifezach",
   "targetAbi": "10.11.0.0",
-  "timestamp": "2026-06-11T23:30:00.0000000Z",
-  "version": "1.2.0.0",
+  "timestamp": "2026-06-14T00:30:00.0000000Z",
+  "version": "1.3.0.0",
   "status": "Active",
   "autoUpdate": true,
   "assemblies": []

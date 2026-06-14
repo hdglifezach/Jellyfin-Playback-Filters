@@ -3,6 +3,7 @@ obj/
 dist/
 release/
 public-release/
+studio-release/
 .vs/
 .idea/
 *.user
